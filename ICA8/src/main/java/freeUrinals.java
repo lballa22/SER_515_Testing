@@ -38,6 +38,12 @@ public class freeUrinals {
                     arr[i] = '1';
                 }
             }
+            else {
+                if(arr[i] =='0' && arr[i-1] == '0' && arr[i+1] == '0')
+                {
+                    arr[i] = '1';
+                }
+            }
         }
         int occupied_count=0;
         for(int i = 0; i < arr.length; i++)
