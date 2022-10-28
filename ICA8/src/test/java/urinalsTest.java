@@ -1,8 +1,18 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 class urinalsTest {
-    freeUrinals f = new freeUrinals();
+    private freeUrinals f;
+
+    @BeforeEach
+    public void setUrine() {
+        f = new freeUrinals();
+    }
+
     @Test
     void testCheckFreeUrinals1() {
         System.out.println("====== LOKA kALYAN BALLA == TEST ONE EXECUTED =======");
@@ -27,11 +37,44 @@ class urinalsTest {
     @Test
     void testValidateString1() {
         System.out.println("====== LOKA KALYAN BALLA == TEST ONE EXECUTED =======");
-        Assertions.assertEquals(false, f.validateString("00AA7"));
+        Assertions.assertEquals(false, f.goodString("00AA7"));
     }
     @Test
     void testValidateString2() {
         System.out.println("====== LOKA KALYAN BALLA == TEST TWO EXECUTED =======");
-        Assertions.assertEquals(true, f.validateString("00110"));
+        Assertions.assertEquals(true, f.goodString("00110"));
+    }
+
+    @Test
+    void readFromFile1() throws IOException {
+        System.out.println("====== LOKA KALYAN BALLA == TEST ONE EXECUTED - Valid Case =======");
+        String filePath = "urinal.dat";
+        Assertions.assertEquals(new String[]{"10001", "1001", "00000", "0000", "01000", "011"},
+                f.readFile(filePath));
+    }
+
+    @Test
+    void readFromFile2() {
+        System.out.println("====== LOKA KALYAN BALLA == TEST TWO EXECUTED - File doesn't exist =======");
+        String filePath = "urinal.dat1";
+        Assertions.assertThrows(FileNotFoundException.class, () -> {
+            f.readFile(filePath);
+        });
+    }
+
+    @Test
+    void readFromFile3() throws IOException {
+        System.out.println("====== LOKA KALYAN BALLA == TEST THREE EXECUTED - Empty file =======");
+        String filePath = "urinal.dat";
+        Assertions.assertEquals(new String[]{}, f.readFile(filePath));
+    }
+
+    @Test
+    void readFromFile4() {
+        System.out.println("====== LOKA KALYAN BALLA == TEST FOUR EXECUTED - IOException =======");
+        String filePath = "urinal";
+        Assertions.assertThrows(IOException.class, () -> {
+            f.readFile(filePath);
+        });
     }
 }
