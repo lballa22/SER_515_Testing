@@ -7,5 +7,8 @@ class urinalsTest {
     void main() {
         System.out.println("====== Loka Kalyan Balla == TEST ONE EXECUTED =======");
         Assertions.assertEquals(-1, f.checkFreeUrinals("011"));
+
+        System.out.println("====== Loka Kalyan Balla == TEST ONE EXECUTED =======");
+        Assertions.assertEquals(2, f.checkFreeUrinals("0000"));
     }
 }
