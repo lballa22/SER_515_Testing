@@ -1,3 +1,4 @@
+import java.util.*;
 public class freeUrinals {
     void getString()
     {
@@ -7,9 +8,8 @@ public class freeUrinals {
     {
 
     }
-    Boolean checkFreeUrinals(String str)
+    int checkFreeUrinals(String str)
     {
-        System.out.println("Skeleton code");
-        return true;
+        return 0;
     }
 }
