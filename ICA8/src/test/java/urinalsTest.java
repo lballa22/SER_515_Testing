@@ -13,5 +13,8 @@ class urinalsTest {
 
         System.out.println("====== LOKA KALYAN BALLA == TEST THREE EXECUTED =======");
         Assertions.assertEquals(0, f.checkFreeUrinals("1001"));
+
+        System.out.println("====== LOKA KALYAN BALLA == TEST FOUR EXECUTED =======");
+        Assertions.assertEquals(1, f.checkFreeUrinals("10001"));
     }
 }
