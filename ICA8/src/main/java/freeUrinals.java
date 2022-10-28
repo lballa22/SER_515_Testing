@@ -10,6 +10,12 @@ public class freeUrinals {
     }
     int checkFreeUrinals(String str)
     {
-        return 0;
+        boolean is_free = str.contains("11");
+        if(is_free){
+            return -1;
+        }
+        else{
+            return 0;
+        }
     }
 }
