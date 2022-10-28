@@ -21,6 +21,7 @@ public class urinals {
                 String str = sc.next();
                 if(f.goodString(str))
                 {
+                    System.out.println("The number of urinals available");
                     System.out.println(f.checkFreeUrinals(str));
                 }
                 else{

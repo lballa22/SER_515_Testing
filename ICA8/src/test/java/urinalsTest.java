@@ -46,35 +46,23 @@ class urinalsTest {
     }
 
     @Test
-    void readFromFile1() throws IOException {
-        System.out.println("====== LOKA KALYAN BALLA == TEST ONE EXECUTED - Valid Case =======");
-        String filePath = "urinal.dat";
-        Assertions.assertEquals(new String[]{"10001", "1001", "00000", "0000", "01000", "011"},
-                f.readFile(filePath));
-    }
-
-    @Test
-    void readFromFile2() {
+    void readFromFile1() {
         System.out.println("====== LOKA KALYAN BALLA == TEST TWO EXECUTED - File doesn't exist =======");
-        String filePath = "urinal.dat1";
+        String filePath = "./ICA8/src/main/resources/urinal.dat1";
         Assertions.assertThrows(FileNotFoundException.class, () -> {
             f.readFile(filePath);
         });
     }
 
     @Test
-    void readFromFile3() throws IOException {
-        System.out.println("====== LOKA KALYAN BALLA == TEST THREE EXECUTED - Empty file =======");
-        String filePath = "urinal.dat";
-        Assertions.assertEquals(new String[]{}, f.readFile(filePath));
-    }
-
-    @Test
-    void readFromFile4() {
+    void readFromFile2() {
         System.out.println("====== LOKA KALYAN BALLA == TEST FOUR EXECUTED - IOException =======");
         String filePath = "urinal";
         Assertions.assertThrows(IOException.class, () -> {
             f.readFile(filePath);
         });
     }
+
+
+
 }
